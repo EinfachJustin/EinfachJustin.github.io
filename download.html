@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam-Bibliothek</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Dunkler Hintergrundfarbe für Dark Mode */
+            color: #fff; /* Weißer Text für Dark Mode */
+            overflow: hidden; /* Um den horizontalen Scrollbalken zu vermeiden */
+        }
+
+        .content {
+            padding: 40px 20px; /* Increased top and bottom padding */
+            background-color: #2a2a2a; /* Dunkler Hintergrundfarbe für Dark Mode */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Heller Schatten für Dark Mode */
+            display: flex;
+            flex-direction: column; /* Flex-Richtung auf Spalten setzen */
+            align-items: center;
+        }
+
+        .header-image {
+            width: 100%;
+            height: auto; /* Adjusting height to maintain aspect ratio */
+            max-height: 500px; /* Maximalhöhe des Bildes */
+            object-fit: cover;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .info-bar {
+            width: 98%;
+            display: flex;
+            justify-content: space-between; /* Platz zwischen den Elementen */
+            align-items: center;
+            margin-top: -50px; /* Negative margin to overlap the image */
+            background-color: rgba(255, 255, 255, 0); /* Heller Hintergrundfarbe mit Transparenz für Dark Mode */
+            padding: 10px 20px; /* Innenabstand */
+            border-radius: 5px;
+        }
+
+        .download-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Um Standard-Button-Stil zu entfernen */
+        }
+
+        .update-info {
+            font-size: 14px;
+            color: #fff; /* Textfarbe weiß für Dark Mode */
+        }
+
+        .update-history,
+        .description {
+            width: 100%;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            background-color: #333; /* Dunkler Hintergrundfarbe für Dark Mode */
+        }
+
+        .update-history h2,
+        .description h2 {
+            color: #fff; /* Textfarbe weiß für Dark Mode */
+        }
+
+        .update-history ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .update-history ul li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .update-history,
+            .description {
+                width: 100%; /* Setzt die Breite auf 100% bei kleineren Bildschirmen */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <img class="header-image" src="bild.jpg" alt="Header-Bild">
+    <div class="info-bar">
+        <a class="download-button" href="spiel.zip" download>HERUNTERLADEN</a>
+        <div class="update-info">
+            <strong>Zuletzt aktualisiert:</strong> 01. Februar 2024
+        </div>
+    </div>
+    <div class="description">
+        <h2>Beschreibung</h2>
+        <p>Hier können Sie eine kurze Beschreibung Ihres Spiels einfügen. Geben Sie Informationen wie Genre, Spielmechanik, Besonderheiten und andere relevante Details an.</p>
+    </div>
+    <div class="update-history">
+        <h2>Update-Historie</h2>
+        <ul>
+            <li>Version 1.0 - Datum: 01.01.2024</li>
+            <li>Version 1.1 - Datum: 15.02.2024</li>
+            <!-- Weitere Updates hier einfügen -->
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
