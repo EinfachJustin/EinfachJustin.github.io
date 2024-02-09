@@ -25,7 +25,7 @@
 // Funktion zum Authentifizieren
 function authenticate() {
     var passwordInput = document.getElementById('password').value;
-    var storedPassword = '{{ PASSWORD }}'; // Platzhalter für das Passwort
+    var storedPassword = '${{ secrets.Passwort }}'; // Platzhalter für das Passwort
 
     if (passwordInput === storedPassword) {
         // Weiterleitung auf eine neue Seite nach erfolgreicher Authentifizierung
