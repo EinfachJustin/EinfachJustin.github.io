@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steam-Bibliothek</title>
+    <title>Volcano - Das ultimative Spiel</title>
     <style>
+        /* Globale Stile */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a; /* Dunkler Hintergrundfarbe für Dark Mode */
-            color: #fff; /* Weißer Text für Dark Mode */
-            overflow: hidden; /* Um den horizontalen Scrollbalken zu vermeiden */
+            background-color: #0D0D0D; /* Dunkler Hintergrundfarbe */
+            color: #E0E0E0; /* Heller Text */
         }
 
+        /* Inhaltsbereich */
         .content {
-            padding: 40px 20px; /* Increased top and bottom padding */
-            background-color: #2a2a2a; /* Dunkler Hintergrundfarbe für Dark Mode */
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Heller Schatten für Dark Mode */
-            display: flex;
-            flex-direction: column; /* Flex-Richtung auf Spalten setzen */
-            align-items: center;
+            padding: 40px;
+            background-color: #1A1A1A; /* Dunkler Hintergrund */
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Subtiler Schatten */
+            text-align: center;
+            max-width: 800px;
+            margin: 50px auto;
         }
 
+        /* Header-Bild */
         .header-image {
             width: 100%;
-            height: auto; /* Adjusting height to maintain aspect ratio */
-            max-height: 500px; /* Maximalhöhe des Bildes */
+            max-height: 400px; /* Maximalhöhe des Bildes */
             object-fit: cover;
-            border-radius: 5px 5px 0 0;
+            border-radius: 15px 15px 0 0;
         }
 
+        /* Informationsleiste */
         .info-bar {
-            width: 98%;
             display: flex;
-            justify-content: space-between; /* Platz zwischen den Elementen */
+            justify-content: space-between;
             align-items: center;
-            margin-top: -50px; /* Negative margin to overlap the image */
-            background-color: rgba(255, 255, 255, 0); /* Heller Hintergrundfarbe mit Transparenz für Dark Mode */
-            padding: 10px 20px; /* Innenabstand */
-            border-radius: 5px;
+            margin-top: -20px; /* Negative margin, um über das Bild zu legen */
+            padding: 20px;
         }
 
+        /* Download-Button */
         .download-button {
             padding: 10px 20px;
             background-color: #4CAF50;
@@ -52,68 +52,188 @@
             cursor: pointer;
             font-size: 16px;
             text-decoration: none; /* Um Standard-Button-Stil zu entfernen */
+            transition: background-color 0.3s ease;
         }
 
+        .download-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Update-Informationen */
         .update-info {
             font-size: 14px;
-            color: #fff; /* Textfarbe weiß für Dark Mode */
         }
 
-        .update-history,
+        /* Beschreibung */
         .description {
-            width: 100%;
             padding: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-            background-color: #333; /* Dunkler Hintergrundfarbe für Dark Mode */
+            text-align: left;
         }
 
-        .update-history h2,
         .description h2 {
-            color: #fff; /* Textfarbe weiß für Dark Mode */
+            color: #fff;
         }
 
+        /* Update-Historie */
+        .update-history {
+            padding: 20px;
+            text-align: left;
+            border-top: 2px solid #4CAF50; /* Hervorhebung der oberen Grenze */
+        }
+
+        .update-history h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase; /* Umwandlung in Großbuchstaben */
+        }
+
+        /* Patch-Notizen */
         .update-history ul {
-            list-style: none;
+            list-style-type: none; /* Entfernen Sie die Standard-Stilisierung von Listen */
             padding: 0;
             margin: 0;
+            display: grid;
+            gap: 10px; /* Verringern Sie den Abstand zwischen den Notizen */
+            justify-content: center;
+            max-width: 100%; /* Hier wird die Breite auf 100% des Inhaltsbereichs gesetzt */
         }
 
         .update-history ul li {
+            margin-bottom: 0; /* Entfernen Sie den unteren Abstand für jeden Stichpunkt */
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .update-history ul li:hover {
+            color: #4CAF50; /* Farbänderung bei Hover */
+        }
+
+        .update-history .patch-notes {
+            display: none;
+            background-color: #2E2E2E; /* Dunkler Hintergrund für Patch-Notizen */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Subtiler Schatten */
+        }
+
+        /* Kategorien für Patch-Notizen */
+        .category {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #FFD700; /* Gelbe Farbe für Kategorie */
+        }
+
+        .added {
+            color: #4CAF50; /* Farbe für Hinzugefügt */
+        }
+
+        .changed {
+            color: #FFD700; /* Farbe für Geändert */
+        }
+
+        .removed {
+            color: #FF6347; /* Farbe für Entfernt */
+        }
+        
+        /* Runde Box für den Titel */
+        .title-box {
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: inline-block;
             margin-bottom: 10px;
         }
 
-        @media (max-width: 768px) {
-            .update-history,
-            .description {
-                width: 100%; /* Setzt die Breite auf 100% bei kleineren Bildschirmen */
-            }
+        /* Beschreibung für den Button */
+        .update-type-description {
+            font-size: 12px;
+            color: #B0B0B0; /* Hellgrau für die Beschreibung */
+            margin-bottom: 5px;
+            display: block;
         }
     </style>
 </head>
 <body>
 
 <div class="content">
-    <img class="header-image" src="bild.jpg" alt="Header-Bild">
+    <!-- Header-Bild -->
+    <img class="header-image" src="https://cdn.discordapp.com/attachments/1188443410756014120/1205312616096862228/HighresScreenshot00006.png?ex=65d7e9d9&is=65c574d9&hm=1c071c63898d965b1de4f599ffd31575f4548ab34a5cd025af5f72373f61bf69&" alt="Header-Bild">
+    
+    <!-- Informationsleiste -->
     <div class="info-bar">
         <a class="download-button" href="spiel.zip" download>HERUNTERLADEN</a>
         <div class="update-info">
             <strong>Zuletzt aktualisiert:</strong> 01. Februar 2024
         </div>
     </div>
+    
+    <!-- Beschreibung -->
     <div class="description">
         <h2>Beschreibung</h2>
-        <p>Hier können Sie eine kurze Beschreibung Ihres Spiels einfügen. Geben Sie Informationen wie Genre, Spielmechanik, Besonderheiten und andere relevante Details an.</p>
+        <p>Hier kannst du eine kurze Beschreibung deines Spiels einfügen. Gib Informationen wie Genre, Spielmechanik, Besonderheiten und andere relevante Details an.</p>
     </div>
+    
+    <!-- Update-Historie -->
     <div class="update-history">
         <h2>Update-Historie</h2>
         <ul>
-            <li>Version 1.0 - Datum: 01.01.2024</li>
-            <li>Version 1.1 - Datum: 15.02.2024</li>
+            <li onclick="togglePatchNotes('patch2')" class="title-box">
+                <span class="update-type-description">(Großes Update)</span>
+                Version 1.1 - Datum: 05.01.2024
+            </li>
+            <div class="patch-notes" id="patch2">
+                <p class="category"><span class="added">Hinzugefügt:</span></p>
+                <ul>
+                    <li>Neue Funktion - Story-Modus</li>
+                    <li>Verbesserung der Benutzeroberfläche</li>
+                </ul>
+                <p class="category"><span class="changed">Geändert:</span></p>
+                <ul>
+                    <li>Optimierung der Spielmechanik</li>
+                </ul>
+                <p class="category"><span class="removed">Entfernt:</span></p>
+                <ul>
+                    <li>Überflüssige Hintergrundmusik</li>
+                </ul>
+            </div>
+            <li onclick="togglePatchNotes('patch1')" class="title-box">
+                <span class="update-type-description">(Hotfix)</span>
+                Version 1.0 - Datum: 01.01.2024
+            </li>
+            <div class="patch-notes" id="patch1">
+                <p class="category"><span class="added">Hinzugefügt:</span></p>
+                <ul>
+                    <li>Neue Funktion - Mehrspielermodus</li>
+                </ul>
+                <p class="category"><span class="changed">Geändert:</span></p>
+                <ul>
+                    <li>Verbesserung der Grafikqualität</li>
+                    <li>Fehlerkorrekturen</li>
+                </ul>
+                <p class="category"><span class="removed">Entfernt:</span></p>
+                <ul>
+                    <li>Unbenutzte Funktion</li>
+                </ul>
+            </div>
             <!-- Weitere Updates hier einfügen -->
         </ul>
     </div>
 </div>
+
+<script>
+    function togglePatchNotes(patchId) {
+        var patchNotes = document.getElementById(patchId);
+        if (patchNotes.style.display === "none") {
+            patchNotes.style.display = "block";
+        } else {
+            patchNotes.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
