@@ -10,8 +10,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0D0D0D; /* Dunkler Hintergrundfarbe */
-            color: #E0E0E0; /* Heller Text */
+            background-color: #121212; /* Dunkler Hintergrundfarbe für Dark Mode */
+            color: #fff; /* Weißer Text für Dark Mode */
         }
 
         /* Inhaltsbereich */
@@ -19,10 +19,12 @@
             padding: 40px;
             background-color: #1A1A1A; /* Dunkler Hintergrund */
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Subtiler Schatten */
             text-align: center;
             max-width: 800px;
             margin: 50px auto;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), /* Heller Schatten um den Rand */
+                        0 0 30px rgba(255, 255, 255, 0.1) inset; /* Subtiler heller Schatten am Rand */
+            animation: glow 2s infinite alternate; /* Animation für den Rand */
         }
 
         /* Header-Bild */
@@ -154,6 +156,18 @@
             color: #B0B0B0; /* Hellgrau für die Beschreibung */
             margin-bottom: 5px;
             display: block;
+        }
+
+        /* Animation für den Rand */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), /* Heller Schatten um den Rand */
+                            0 0 30px rgba(255, 255, 255, 0.1) inset; /* Subtiler heller Schatten am Rand */
+            }
+            100% {
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.5), /* Hellerer Schatten um den Rand */
+                            0 0 60px rgba(255, 255, 255, 0.3) inset; /* Subtilerer heller Schatten am Rand */
+            }
         }
     </style>
 </head>
