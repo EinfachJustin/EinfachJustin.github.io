@@ -22,9 +22,10 @@
 </div>
 
 <script>
+// Funktion zum Authentifizieren
 function authenticate() {
     var passwordInput = document.getElementById('password').value;
-    var storedPassword = 'test'; // Hier das gespeicherte Passwort eintragen
+    var storedPassword = '{{ PASSWORD }}'; // Platzhalter für das Passwort
 
     if (passwordInput === storedPassword) {
         // Weiterleitung auf eine neue Seite nach erfolgreicher Authentifizierung
