@@ -1,0 +1,5 @@
+*.log
+
+VolcanoIsland/
+
+#secret_config.txt
