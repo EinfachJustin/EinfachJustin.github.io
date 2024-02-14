@@ -1,5 +1,2 @@
-*.log
-
-*.zip
-
 secret_config.txt
+*.zip
